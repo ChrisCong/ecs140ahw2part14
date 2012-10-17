@@ -41,9 +41,9 @@ public class Parser {
         program();
         if( tok.kind != TK.EOF )
             parse_error("junk after logical end of program");
-        //for (int i = 0; i < C_Program.size(); i++) {
-			//System.out.println(C_Program.elementAt(i));
-		//}
+        for (int i = 0; i < C_Program.size(); i++) {
+			System.out.println(C_Program.elementAt(i));
+		}
     }
 
     // for code generation
@@ -51,18 +51,18 @@ public class Parser {
 
     // print something in the generated code
     private void gcprint(String str) {
-		//C_Program.push(str);
-        System.out.println(str);
+		C_Program.push(str);
+        //System.out.println(str);
     }
     private void gcprint(StringBuffer str) {
-		//C_Program.push(str);
-		System.out.println(str);
+		C_Program.push(str.toString());
+		//System.out.println(str);
 	}
     // print identifier in the generated code
     // it prefixes x_ in case id conflicts with C keyword.
     private void gcprintid(String str) {
 		C_Program.push("x_"+str);
-        System.out.println("x_"+str);
+        //System.out.println("x_"+str);
     }
 
     private void program() {
